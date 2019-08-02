@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key key, this.title}) : super(key: key);
@@ -77,8 +78,22 @@ class _LoginPageState extends State<LoginPage> {
                   onTap: () {
                     Navigator.pushNamed(context, "/forgotPassword");
                   },
-                  child: new Text("Forgot Password?"),
-                )
+                  child: new Text("Forgot Password?",
+                     style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500
+                  ),
+                  ),
+                ),
+                Text.rich(TextSpan(text: "Don't have account?-", children: [
+                  TextSpan(
+                      text: 'Sign Up Now!',
+                      style: TextStyle(color: Colors.red[600], fontSize: 16),
+                      recognizer: new TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.pushNamed(context, '/register');
+                        })
+                ]))
               ],
             ),
           ),
