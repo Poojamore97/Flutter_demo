@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 loginButon,
                 SizedBox(
-                  height: 15.0,
+                  height: 16.0,
                 ),
                 new GestureDetector(
                   onTap: () {
