@@ -10,31 +10,44 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
+  FocusNode email = new FocusNode();
+  FocusNode password = new FocusNode();
 
   @override
   Widget build(BuildContext context) {
-    final emailField = TextField(
-      obscureText: false,
-      style: style,
-      decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          hintText: "Email",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+    final emailField = new Container(
+      child: new TextField(
+        focusNode: email,
+        cursorColor: Colors.red[600],
+        decoration: new InputDecoration(
+          labelText: 'Email',
+          labelStyle:
+              TextStyle(color: email.hasFocus ? Colors.red[600] : Colors.black),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.red[600]),
+          ),
+        ),
+      ),
     );
-    final passwordField = TextField(
-      obscureText: true,
-      style: style,
-      decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          hintText: "Password",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+    final passwordField = new Container(
+      child: new TextField(
+        cursorColor: Colors.red[600],
+        focusNode: password,
+        obscureText: true,
+        decoration: new InputDecoration(
+          labelText: 'password',
+          labelStyle: TextStyle(
+              color: password.hasFocus ? Colors.red[600] : Colors.black),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.red[600]),
+          ),
+        ),
+      ),
     );
     final loginButon = Material(
       elevation: 5.0,
-      borderRadius: BorderRadius.circular(30.0),
-      color: Color(0xff01A0C7),
+      color: Colors.red[600],
+      borderRadius: BorderRadius.circular(5),
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
@@ -59,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: 155.0,
                   child: Image.asset(
-                    "assets/diamond.jpg",
+                    "assets/logo.jpg",
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -78,14 +91,14 @@ class _LoginPageState extends State<LoginPage> {
                   onTap: () {
                     Navigator.pushNamed(context, "/forgotPassword");
                   },
-                  child: new Text("Forgot Password?",
-                     style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500
-                  ),
+                  child: new Text(
+                    "Forgot Password?",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                 ),
-                Text.rich(TextSpan(text: "Don't have account?-", children: [
+                new Container(
+                  margin: EdgeInsets.only(top:10),
+                  child:Text.rich(TextSpan(text: "Don't have account?-", children: [
                   TextSpan(
                       text: 'Sign Up Now!',
                       style: TextStyle(color: Colors.red[600], fontSize: 16),
@@ -93,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                         ..onTap = () {
                           Navigator.pushNamed(context, '/register');
                         })
-                ]))
+                ])))
               ],
             ),
           ),
