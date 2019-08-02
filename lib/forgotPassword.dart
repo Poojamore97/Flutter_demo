@@ -60,7 +60,7 @@ class _ForgotPassword extends State<ForgotPasswordPage> {
                   color: Colors.grey,
                   fontWeight: FontWeight.w500,
                   fontFamily: 'Roboto',
-                  letterSpacing: 0.5,
+                  letterSpacing: 0.6,
                   fontSize: 15,
                 ),
               ),
