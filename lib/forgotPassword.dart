@@ -61,7 +61,7 @@ class _ForgotPassword extends State<ForgotPasswordPage> {
                   fontWeight: FontWeight.w500,
                   fontFamily: 'Roboto',
                   letterSpacing: 0.5,
-                  fontSize: 14,
+                  fontSize: 15,
                 ),
               ),
             ]
